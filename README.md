@@ -38,9 +38,21 @@ Other gaps: no example idea passes `check` end to end yet, and pull requests hav
 ## Try it
 
 ```
-git clone <your app> app
+git clone <your app repo URL> app
+git clone https://github.com/OperationsResearchBit/labs labs
+mkdir -p app/build_and_test/lab
+cp -r labs/labs_upload/. app/build_and_test/lab/
 cd app
-git clone https://github.com/OperationsResearchBit/labs build_and_test/lab
+python build_and_test/lab/lab.py list
+```
+
+On Windows PowerShell, copy with `Copy-Item -Recurse labs\labs_upload\* app\build_and_test\lab\` (create the `lab` folder first if it does not exist).
+
+The lab files live in the `labs_upload/` folder of this repo. Copy its contents into `build_and_test/lab/` of your app.
+
+Then try the loop:
+
+```
 python build_and_test/lab/lab.py new my_idea
 python build_and_test/lab/lab.py check my_idea
 ```
