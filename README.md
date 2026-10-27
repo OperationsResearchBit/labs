@@ -59,6 +59,9 @@ python build_and_test/lab/lab.py check my_idea
 
 A new idea says "No test". Turn the example in its `IDEA.md` into a test, write the code until `check` says "Ready", then promote it.
 
+Why is there a labs_upload/ folder?
+This repo has two kinds of files. The ones at the top (README, CONTRIBUTING, LICENSE) are about the project. The ones in labs_upload/ are the lab: lab.py, the AI harness, the template and the example ideas. You copy the contents of labs_upload/ into build_and_test/lab/ of your app. Keeping them in their own folder stops this repo’s docs from landing inside your app, and it leaves room for tools that apply to the whole repo later, such as pull-request checks.
+
 ## Commands
 
 | Command | What it does |
