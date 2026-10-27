@@ -15,14 +15,18 @@ There are two ways to contribute:
 
 ## Set up
 
-The lab runs on top of the app. It looks for the app two folders above itself.
+The lab runs on top of the app. It looks for the app two folders above itself, so the contents of this repo's `labs_upload/` folder go into `build_and_test/lab/` of the app.
 
 ```
 git clone <your app repo URL> app
+git clone https://github.com/OperationsResearchBit/labs labs
+mkdir -p app/build_and_test/lab
+cp -r labs/labs_upload/. app/build_and_test/lab/
 cd app
-git clone <this repo URL> build_and_test/lab
 python build_and_test/lab/lab.py list
 ```
+
+On Windows PowerShell, copy with `Copy-Item -Recurse labs\labs_upload\* app\build_and_test\lab\` (create the `lab` folder first if it does not exist).
 
 If `list` prints the example ideas, you are set up. On Windows you can also double-click `build_and_test/lab/lab.bat`.
 
@@ -73,7 +77,7 @@ For a quick report of at most 20 lines, use `short my_idea` instead of `check`.
 ## Open a pull request
 
 1. Fork this repo and create a branch.
-2. Add your idea folder only: `my_idea/`. Do not edit other ideas or `lab.py` in the same pull request.
+2. Add your idea folder only, under `labs_upload/my_idea/`. Do not edit other ideas or `lab.py` in the same pull request.
 3. In the pull request, say what the idea does and paste the result of `check my_idea`.
 4. The maintainer reviews it. **Promoting** an idea into an app is the app owner's decision, because it changes the app.
 
